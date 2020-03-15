@@ -1,16 +1,18 @@
 <?php
-//Class utiliser
 define('ROOT', dirname(__DIR__));
-require ROOT . '\app\App.php';
-App::load();
-if(isset($_GET['p'])){
+require "../Database/Requete.php";
+if (isset($_GET['p'])) {
     $page = $_GET['p'];
-}else{
+} else {
     $page = 'home';
 }
 ob_start();
-if($page=== 'home'){
-    require ROOT . '/pages/posts/home.php';
+if ($page === 'home') {
+    require "../pages/posts/acceuil.php";
+}elseif ($page === 'inscription'){
+    require  "../pages/posts/inscription.php";
+}elseif ($page === 'login'){
+    require  "../pages/posts/connexion.php";
 }
 $content = ob_get_clean();
-require ROOT . '/pages/templates/default.php';
+require  "../pages/templates/templates.php";

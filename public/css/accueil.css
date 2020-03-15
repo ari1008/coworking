@@ -1,0 +1,114 @@
+body{
+    font-family: lucida sans;
+}
+
+.sections{
+    padding:20px 0;
+}
+
+h2{
+    color:#fff;
+}
+header{
+    height: auto;
+    padding: 10px 0;
+    position: fixed;
+    width: 100%;
+    transition: 0.5s;
+}
+
+#tropbo:hover{
+    transition: 0.3s;
+ background-color: rgba(0,0,0,0.8);
+}
+
+.icon{
+    position: absolute;
+    right: 30px;
+    top: 32px;
+    z-index: 10;
+    display:none;
+}
+
+.nav-list{
+    list-style:none;
+    display: flex;
+    justify-content:space-around;
+}
+
+.list a{
+    display: block;
+    font-family:lucida sans;
+    padding: 15px;
+    margin:9px 0;
+    text-decoration:none;
+    transition: all 0.3s ease-in-out;
+    color:#fff;
+}
+
+a:hover{
+    color: #7cb62f;
+}
+
+@media (max-width:475px){
+    .nav-list{
+        display:block;
+    }
+}
+
+/* Home section */
+
+.home{
+    height: 650px;
+    background-image: url(../image/co.jpg);
+    background-size: cover;
+    background-position:center;
+}
+
+.home-content{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.home-title{
+    color:#fff;
+    font-size: 45px;
+    margin-bottom: 20px;
+}
+
+.home-desc{
+    color: #fff;
+    font-size:15px;
+}
+
+.button{
+    background: #7cb62f;
+    color: #fff;
+    width: 150px;
+    text-align:center;
+    padding: 10px 0;
+}
+
+.nouveau{
+    color:black;
+    padding: 50px 0px;
+    padding-left:500px;
+}
+
+.fin{
+    color:black;
+    padding: 50px 0px;
+    padding-left:230px;
+}
+
+.list1{
+    color:black;
+    display: block;
+    font-family:../font/lucida sans;
+    padding: 15px;
+    margin:9px 0;
+    text-decoration:none;
+    transition: all 0.3s ease-in-out;
+}

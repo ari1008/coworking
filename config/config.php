@@ -1,7 +1,9 @@
 <?php
-return array(
-    "db_user"=> "root",
-    "db_pass" => "root",
-    "db_host" => "localhost",
-    "db_name" => "coworking"
-);
+try{
+	$bdd = new PDO('mysql:host=localhost:3307;dbname=coworking', 'root', 'root', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
+}
+catch(Exception $e){
+	die('Erreur : ' . $e->getMessage());
+}
+
+?>
