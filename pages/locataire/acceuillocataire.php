@@ -1,4 +1,1 @@
-
-<div>
-    <h1>Vous êtes chez un locataire</h1>
-</div>
+<h1>vous êtes chez le locataire</h1>

@@ -13,9 +13,9 @@ if(!empty($_POST)) {
     $show = '<div class="alert alert-danger">
     '. $test .'
     </div>';
-    }
+}
 empty($show) ? $message = '' : $message=$show;
-    ?>
+?>
 
 <header style="background-color: #2d2d2d">
     <div class="container">
@@ -54,6 +54,7 @@ empty($show) ? $message = '' : $message=$show;
                     <select name="categorie" >
                         <option value="1">Bailleur</option>
                         <option value="2">Locataire</option>
+                        <option value="3">Admin</option>
                     </select>
                     <p>Pseudo</p>
                     <input type="text" name="username">

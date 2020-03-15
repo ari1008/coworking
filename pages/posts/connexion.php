@@ -5,7 +5,7 @@ if(!empty($_POST)) {
         'password' => $_POST['password']];
     $test = Open($connexion);
 }
-
+empty($test)? $message= '' : $message= $test;
 ?>
 
 <header style="background-color: #2d2d2d">
@@ -33,7 +33,8 @@ if(!empty($_POST)) {
 <div class="container" style="padding-left:400px; padding-top:200px; padding-bottom: 400px;">
     <div class="col-md-6" style="background-color: #D3D3D3; padding:100px 30px; padding-left:50px; padding-right:50px;border-radius:5px;">
         <div class="row">
-            <h1>Sign in</h1>
+            <h1>Connexion</h1>
+            <?= $message; ?>
             <form method="post" class="form-group">
                 <div class="col-md-12">
                     <p>Pseudo</p>

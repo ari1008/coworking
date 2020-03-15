@@ -5,23 +5,22 @@ function Open($value){
     $operator = [','];
     $EmailS = Select('user',$tab, 0, $Wheretab, $operator);
     if (password_verify( $value['password'],$EmailS['password'])){
-        session_start();
         if($EmailS['categorie']== 1){
-            $_SESSION['id'] = $EmailS["1"];
+            $_SESSION['id'] = $EmailS['id_user'];
             header('location: bailleur.php');
             exit();
         }elseif($EmailS['categorie']== 2){
-            $_SESSION['id'] = $EmailS["1"];
+            $_SESSION['id'] = $EmailS['id_user'];
             header('location: locataire.php');
             exit();
         }else{
-            $_SESSION['id'] = $EmailS["1"];
+            $_SESSION['id'] = $EmailS['id_user'];
             header('location: admin.php');
             exit();
         }
 
     }else{
-        return -1;
+        return '<div class="alert alert-danger"> Identifiant incorrect</div>';
     }
 }
 
@@ -29,7 +28,12 @@ function Verif($values){
     //Vérification des entrées du tableau si elle sont vide
     foreach ($values as $key => $value){
         if (empty($value)){
-            return $key;
+            return $key . ' est vide' ;
+        }else{
+            trim($value);
+            if ($key == 'prenom' OR $key == 'nom'){
+               $values[$key]= ucfirst($value);
+            }
         }
     }
     // Vérification de l'email si c'est une vraie après une jetable
@@ -66,10 +70,13 @@ function Verif($values){
     }
 
     $send = Insert('user', $values);
-    return $send;
+    header('location: index.php?p=login');
+    exit();
 }
 
-function Session(){
-    session_start();
-
+function Session($tabsession){
+    $tab = [ 'categorie'];
+    $Wheretab = ['id_user'=>$tabsession['id']];
+    $EmailS = Select('user',$tab, 0, $Wheretab);
+     return $categorie= $EmailS['categorie'];
 }
