@@ -6,8 +6,9 @@ require_once ROOT .  '/Models/Auth/connexion.php';
 if (!empty($_SESSION['id'])) {
     $test = Session($_SESSION);
     if ($test != 1) {
-        header("location: out.php");
-        exit();
+        var_dump($test);
+        //header("location: out.php");
+        //exit();
     }
 }else{
      header("location: index.php");
@@ -24,4 +25,4 @@ if ($page === 'home') {
     require "../pages/bailleur/acceuilbailleur.php";
 }
 $content = ob_get_clean();
-require  ROOT . '/pages/templates/templates.php';
+require ROOT . '/pages/templates/post/templates.php';

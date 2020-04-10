@@ -2,7 +2,7 @@
 function Insert($table, $tab){
     $lenght = count($tab);
     $tabkey =array_keys($tab);
-    $bdd = new PDO ('mysql:host=localhost:3307;dbname=coworkingpa', 'root', 'root');
+    require ROOT . '/config/config.php';
     $q = "INSERT INTO " . $table. "(";
     for($x=0;$x<$lenght-1;$x++){
         $q.= $tabkey[$x] . ",";
@@ -11,14 +11,13 @@ function Insert($table, $tab){
     $q .=$tabkey[$x] .") VALUES('";
     $virgule = implode("','", $tab);
     $q.= $virgule . "')";
-    $send = $bdd->query($q);
-    $data= $send->fetch();
+    $data = $bdd->query($q);
     return $data;
 }
 
 function Select($table, $tab, $everything=0, $whereTab=null,$operator=null,$one = null){
     $lengthTab= count($tab);
-    $pdo = new PDO ('mysql:host=localhost:3307;dbname=coworkingpa', 'root', 'root');
+    require ROOT . '/config/config.php';
     if(1==$everything){
         $q = 'SELECT * FROM ' . $table;
     }else{
@@ -36,7 +35,7 @@ function Select($table, $tab, $everything=0, $whereTab=null,$operator=null,$one 
             }
             $where .= $keyWhere[$x] . "=:" . $keyWhere[$x] . ' ';
             $q .= $where;
-            $stmt= $pdo->prepare($q);
+            $stmt= $bdd->prepare($q);
             $stmt->execute($whereTab);
             if (!is_null($one)){
                 $data = $stmt->fetchAll();
@@ -58,7 +57,7 @@ function Select($table, $tab, $everything=0, $whereTab=null,$operator=null,$one 
 }
 
 function Delete($table, $one=0,$where=null){
-    $bdd = new PDO ('mysql:host=localhost:3307;dbname=coworkingpa', 'root', 'root');
+    require ROOT . '/config/config.php';
     $q = "DELETE FROM " . $table;
     if(!is_null($where)){
         $q .= " WHERE ";
@@ -81,7 +80,7 @@ function Delete($table, $one=0,$where=null){
 }
 
 function Update($table, $set, $where, $operator){
-    $bdd = new PDO ('mysql:host=localhost:3307;dbname=coworkingpa', 'root', 'root');
+    require ROOT . '/config/config.php';
     $key = array_keys($set);
     $lenghtTab = count($set);
     $countO = count($operator);

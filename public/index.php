@@ -18,4 +18,4 @@ if ($page === 'home') {
     require  "../pages/posts/connexion.php";
 }
 $content = ob_get_clean();
-require  "../pages/templates/templates.php";
+require "../pages/templates/post/templates.php";

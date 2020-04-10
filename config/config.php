@@ -1,9 +1,8 @@
 <?php
-try{
-	$bdd = new PDO('mysql:host=localhost:3307;dbname=coworking', 'root', 'root', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
-}
-catch(Exception $e){
-	die('Erreur : ' . $e->getMessage());
-}
-
+$host = 'localhost';
+$port = '3307';
+$dbname = 'bdd_pa_2020';
+$pseudo = 'root';
+$mp = 'root';
+$bdd = new PDO('mysql:host='.$host.':'.$port.';dbname='.$dbname .'', ''.$pseudo.'', ''.$mp.'', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
 ?>

@@ -24,4 +24,4 @@ if ($page === 'home') {
     require "../pages/locataire/acceuillocataire.php";
 }
 $content = ob_get_clean();
-require  ROOT . '/pages/templates/templates.php';
+require ROOT . '/pages/templates/locataire/templateslocataire.php';

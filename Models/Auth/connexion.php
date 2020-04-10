@@ -1,20 +1,22 @@
 <?php
 function Open($value){
-    $tab = ['id_user', 'categorie', 'password'];
+    $tab = ['id_user', 'categorie_user', 'password'];
     $Wheretab = ['username'=>$value['username']];
     $operator = [','];
     $EmailS = Select('user',$tab, 0, $Wheretab, $operator);
     if (password_verify( $value['password'],$EmailS['password'])){
-        if($EmailS['categorie']== 1){
+        $date = dateInsert($EmailS['id_user']);
+        if($EmailS['categorie_user']== 1){
             $_SESSION['id'] = $EmailS['id_user'];
             header('location: bailleur.php');
             exit();
-        }elseif($EmailS['categorie']== 2){
+        }elseif($EmailS['categorie_user']== 2){
             $_SESSION['id'] = $EmailS['id_user'];
             header('location: locataire.php');
             exit();
         }else{
             $_SESSION['id'] = $EmailS['id_user'];
+            var_dump($EmailS);
             header('location: admin.php');
             exit();
         }
@@ -75,8 +77,23 @@ function Verif($values){
 }
 
 function Session($tabsession){
-    $tab = [ 'categorie'];
+    $tab = [ 'categorie_user'];
     $Wheretab = ['id_user'=>$tabsession['id']];
     $EmailS = Select('user',$tab, 0, $Wheretab);
-     return $categorie= $EmailS['categorie'];
+
+     return  $EmailS['categorie_user'];
+}
+
+ function dateInsert($tabsession){
+     $day = date('d/m/y');
+     $values =['date'=>$day,
+         'id_user'=>$tabsession];
+     $date = Insert('connexion', $values);
+     return $date;
+ }
+function WHO($tabsession){
+    $tab = [ 'prenom, nom'];
+    $Wheretab = ['id_user'=>$tabsession];
+    $user = Select('user',$tab, 0, $Wheretab);
+    return $user;
 }

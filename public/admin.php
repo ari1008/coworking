@@ -22,6 +22,36 @@ if (isset($_GET['p'])) {
 ob_start();
 if ($page === 'home') {
     require ROOT . "/pages/admin/acceuilA.php";
+}elseif ($page === 'user') {
+require "../pages/admin/user.php";
+}elseif ($page === 'deleteUSER') {
+    require ROOT . '/pages/admin/deleteUSER.php';
+}elseif ($page === 'viewUser') {
+    require ROOT . '/pages/admin/viewUser.php';
+}elseif ($page === 'local') {
+    require ROOT . '/pages/admin/local.php';
+}elseif ($page === 'viewLocal') {
+    require ROOT . '/pages/admin/viewLocal.php';
+}elseif ($page === 'deleteLocal') {
+    require ROOT . '/pages/admin/deleteLocal.php';
+}elseif ($page === 'reservation') {
+    require ROOT . '/pages/admin/reservation.php';
+}elseif ($page === 'deleteReservation') {
+    require ROOT . '/pages/admin/deleteReservation.php';
+}elseif ($page === 'viewReservation') {
+    require ROOT . '/pages/admin/viewReservation.php';
+}elseif ($page === 'avis') {
+    require ROOT . '/pages/admin/avis.php';
+}elseif ($page === 'viewAvis') {
+    require ROOT . '/pages/admin/viewAvis.php';
+}elseif ($page === 'deleteAvis') {
+    require ROOT . '/pages/admin/deleteAvis.php';
+}elseif ($page === 'connect') {
+    require ROOT . '/pages/admin/connect.php';
+}elseif ($page === 'viewConnect') {
+    require ROOT . '/pages/admin/viewConnect.php';
+}elseif ($page === 'deco') {
+    require ROOT . '/pages/posts/deco.php';
 }
 $content = ob_get_clean();
-require  ROOT . '/pages/templates/templates.php';
+require ROOT . '/pages/templates/admin/templateadmin.php';

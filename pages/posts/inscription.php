@@ -4,7 +4,7 @@ if(!empty($_POST)) {
     $values = [
         'prenom' => $_POST['prenom'],
         'nom' => $_POST['nom'],
-        'categorie' => $_POST['categorie'],
+        'categorie_user' => $_POST['categorie_user'],
         'username' => $_POST['username'],
         'email' => $_POST['email'],
         'password' => $_POST['password']
@@ -51,7 +51,7 @@ empty($show) ? $message = '' : $message=$show;
                     <p>Nom</p>
                     <input type="text" name="nom">
                     <p>categorie</p>
-                    <select name="categorie" >
+                    <select name="categorie_user" >
                         <option value="1">Bailleur</option>
                         <option value="2">Locataire</option>
                     </select>
